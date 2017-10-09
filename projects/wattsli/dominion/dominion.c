@@ -804,6 +804,7 @@ int cutpurseCard(int currentPlayer, struct gameState *state, int handPos){
   updateCoins(currentPlayer, state, 2);
   int i;
   int j;
+  int k;
   for (i = 0; i < state->numPlayers; i++)
   {
     if (i != currentPlayer)
