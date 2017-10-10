@@ -746,7 +746,8 @@ int getCost(int cardNumber)
 //CARD EFFECT FUNCTIONS ============================
 
 //Defines the behavior of the adventurer card
-int adventurerCard(int drawntreasure, int currentPlayer, struct gameState *state, int temphand, int z){
+int adventurerCard(int drawntreasure, int currentPlayer, struct gameState *state, int *temphand, int z){
+  int i;
   while (drawntreasure < 2)
   {
     if (state->deckCount[currentPlayer] < 1)
