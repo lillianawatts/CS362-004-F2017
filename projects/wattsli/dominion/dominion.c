@@ -746,7 +746,8 @@ int getCost(int cardNumber)
 //CARD EFFECT FUNCTIONS ============================
 
 //Defines the behavior of the adventurer card
-int adventurerCard(int drawntreasure, int currentPlayer, struct gameState *state, int temphand, int z){
+int adventurerCard(int drawntreasure, int currentPlayer, struct gameState *state, int *temphand, int *z){
+  int i;
   while (drawntreasure < 2)
   {
     if (state->deckCount[currentPlayer] < 1)
@@ -759,15 +760,15 @@ int adventurerCard(int drawntreasure, int currentPlayer, struct gameState *state
       drawntreasure++;
     else
     {
-      temphand[z] = cardDrawn;
+      temphand[*z] = cardDrawn;
       state->handCount[currentPlayer]--; //this should just remove the top card (the most recently drawn one).
-      z++;
+      *z++;
     }
   }
-  while (z - 1 >= 0)
+  while (*z - 1 >= 0)
   {
-    state->discard[currentPlayer][state->discardCount[currentPlayer]++] = temphand[z - 1]; // discard all cards in play that have been drawn
-    z = z - 1;
+    state->discard[currentPlayer][state->discardCount[currentPlayer]++] = temphand[*z - 1]; // discard all cards in play that have been drawn
+    *z = *z - 1;
   }
   return 0;
 }
@@ -836,6 +837,7 @@ int cutpurseCard(int currentPlayer, struct gameState *state, int handPos){
 }
 
 int seahagCard(int currentPlayer, struct gameState *state){
+  int i;  
   for (i = 0; i < state->numPlayers; i++)
   {
     if (i == currentPlayer)
