@@ -15,4 +15,4 @@
 #include "rngs.h"
 #include <stdlib.h>
 
-#define TESTCARD "steward"
+#define TESTCARD "village"
