@@ -76,7 +76,6 @@ void cardNumToName(int card, char *name){
 }
 
 
-
 int getCardCost(int card) {
   int cost;
   switch(card) {
@@ -138,10 +137,6 @@ int getCardCost(int card) {
   }
   return cost;
 }
-
-
-
-
 
 
 void printHand(int player, struct gameState *game) {
