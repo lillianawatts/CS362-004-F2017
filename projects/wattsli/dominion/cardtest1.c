@@ -54,19 +54,27 @@ int main(){
     //If only 2 cards were removed from the deck, 
     //discard should be the same
     printf("    TEST 2: Case: top two cards in deck are treasures: ");
-    if((game.deckCount[player] == (beforeGame.deckCount[player]-2)) && (game.discardCount[player] == beforeGame.discardCount[player]))
-        printf("PASSED\n");
-    else
-        printf("FAILED\n");
-
+    if(game.deckCount[player] == (beforeGame.deckCount[player]-2)){
+        if(game.discardCount[player] == beforeGame.discardCount[player])
+            printf("PASSED\n");
+        else
+            printf("FAILED\n");
+    }
+    else{
+        printf("N/A\n");
+    }
     //If more than 2 cards were removed from the deck, 
     //discard should have increased
     printf("    TEST 3: Case: top two cards in deck are not both treasures: ");
-    if((game.deckCount[player] < (beforeGame.deckCount[player]-2)) && (game.discardCount[player] > beforeGame.discardCount[player]))
-        printf("PASSED\n");
-    else
-        printf("FAILED\n");
-
+    if( game.deckCount[player] < (beforeGame.deckCount[player]-2) ){
+        if(game.discardCount[player] > beforeGame.discardCount[player])
+            printf("PASSED\n");
+        else
+            printf("FAILED\n");
+    }
+    else{
+        printf("N/A\n");
+    }
     //OtherPlayer's hand should be the same
     printf("    TEST 4: OtherPlayer's hand should not have changed: ");
     if(game.handCount[player+1] == beforeGame.handCount[player+1])
