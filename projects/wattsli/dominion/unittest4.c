@@ -50,7 +50,7 @@ int main(){
 
     //Does it update the supply?
     printf("    TEST 3: Supply of adventurer should be decreased by 3: ");
-    if(game.supplyCount[adventurer] = (supplyCount - 3))
+    if(game.supplyCount[adventurer] == (supplyCount - 3))
         printf("PASSED\n");
     else
         printf("FAILED\n");
