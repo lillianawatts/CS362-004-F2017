@@ -761,12 +761,13 @@ int getCost(int cardNumber)
 //CARD EFFECT FUNCTIONS ============================
 
 //Defines the behavior of the adventurer card
+//
 int adventurerCard(int drawntreasure, int currentPlayer, struct gameState *state, int *temphand, int *z){
   int i;
   while (drawntreasure < 2)
   {
     if (state->deckCount[currentPlayer] < 1)
-    { //if the deck is empty we need to shuffle discard and add to deck
+    { //if the deck is empty we need to shuffle discard and make new deck
       shuffle(currentPlayer, state);
     }
     drawCard(currentPlayer, state);
