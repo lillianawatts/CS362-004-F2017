@@ -42,7 +42,7 @@ int main(){
 
 
     //start running tests
-    printf("TESTING: village card\n\n");
+    printf("\nTESTING: village card\n");
     cardEffect(village, 0, 0, 0, &game, 0, &bonus);
 
     //player received 1 action

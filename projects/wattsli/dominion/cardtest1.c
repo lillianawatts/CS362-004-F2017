@@ -41,7 +41,7 @@ int main(){
 
     
     //start running tests
-    printf("TESTING: adventurer card\n\n");
+    printf("\nTESTING: adventurer card\n");
     cardEffect(adventurer, 0, 0, 0, &game, 0, &bonus);
 
     //Are there 2 more cards in the player's hand?

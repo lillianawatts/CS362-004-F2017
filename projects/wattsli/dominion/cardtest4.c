@@ -41,7 +41,7 @@ int main(){
 
 
     //start running tests
-    printf("TESTING: great hall card\n\n");
+    printf("\nTESTING: great hall card\n");
     cardEffect(great_hall, 0, 0, 0, &game, 0, &bonus);
 
     //player received 1 action

@@ -29,7 +29,7 @@ int main(){
     int supplyCount = game.supplyCount[adventurer];
 
     //start running tests
-    printf("TESTING: gainCard(int, struct gameState*, int, int)\n");
+    printf("\nTESTING: gainCard(int, struct gameState*, int, int)\n");
     
     //Is the card available?
     printf("    TEST 1: Card should be available (in game, in stock): ");
