@@ -26,7 +26,7 @@ int main(){
     int buyCount = game.numBuys;
     int coinCount = game.coins;
     //start running tests
-    printf("\nTESTING: buyCard(int, struct gameState)\n");
+    printf("\nTESTING UNIT 3: buyCard(int, struct gameState)\n");
     buyCard(adventurer, &game);
     
     //Did the coint of adventurer cards decrease?

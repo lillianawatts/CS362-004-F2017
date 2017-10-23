@@ -30,7 +30,7 @@ int main(){
     game.hand[player][3] = gold;
 
     //start running tests
-    printf("\nTESTING: updateCoins(int, struct gameState*, int)\n");
+    printf("\nTESTING UNIT 1: updateCoins(int, struct gameState*, int)\n");
     
     //Is the number of available coins correct?
     printf("    TEST 1: Number of coins should be 6: ");

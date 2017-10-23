@@ -24,22 +24,23 @@ int main(){
     struct gameState game;
     //game with 2 players
     initializeGame(2, cards, 1, &game);
+    int player = whoseTurn(&game);
 
-    int cardCount = fullDeckCount(whoseTurn(&game), 0, &game);
+    int cardCount = fullDeckCount(player, 0, &game);
     int supplyCount = game.supplyCount[adventurer];
 
     //start running tests
-    printf("\nTESTING: gainCard(int, struct gameState*, int, int)\n");
+    printf("\nTESTING UNIT 4: gainCard(int, struct gameState*, int, int) -using adventurer\n");
     
     //Is the card available?
     printf("    TEST 1: Card should be available (in game, in stock): ");
-    if(gainCard(adventurer, &game, 1, whoseTurn(&game)) > -1)
+    if(gainCard(adventurer, &game, 1, player) > -1)
         printf("PASSED\n");
     else
         printf("FAILED\n");
     
     //Does it add it?
-    printf("    TEST 2: Number of cards in full deck should increase by 3: ");
+    printf("    TEST 2: Number of cards in hand, discard, and deck should increase by 1 resoectively: ");
     gainCard(adventurer, &game, 0, whoseTurn(&game)); //sends card to discard
     gainCard(adventurer, &game, 1, whoseTurn(&game)); //sends card to deck
     gainCard(adventurer, &game, 2, whoseTurn(&game)); //sends card to hand
