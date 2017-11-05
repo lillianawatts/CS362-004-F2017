@@ -283,6 +283,11 @@ int playCard(int handPos, int choice1, int choice2, int choice3, struct gameStat
   return 0;
 }
 
+/*
+* buyCard(int, struct gameState *)
+* int supplyPos: the card being bought
+* struct gameState *state: the game state struct
+*/
 int buyCard(int supplyPos, struct gameState *state)
 {
   int who;
@@ -295,18 +300,21 @@ int buyCard(int supplyPos, struct gameState *state)
 
   who = state->whoseTurn;
 
+  //Does the user have buys left?
   if (state->numBuys < 1)
   {
     if (DEBUG)
       printf("You do not have any buys left\n");
     return -1;
   }
+  //Are there any of the requested card?
   else if (supplyCount(supplyPos, state) < 1)
   {
     if (DEBUG)
       printf("There are not any of that type of card left\n");
     return -1;
   }
+  //does the user have enough cash?
   else if (state->coins < getCost(supplyPos))
   {
     if (DEBUG)
@@ -316,7 +324,7 @@ int buyCard(int supplyPos, struct gameState *state)
   else
   {
     state->phase = 1;
-    //state->supplyCount[supplyPos]--;
+    //Card is added to deck and decremented in gainCard
     gainCard(supplyPos, state, 0, who); //card goes in discard, this might be wrong.. (2 means goes into hand, 0 goes into discard)
 
     state->coins = (state->coins) - (getCost(supplyPos));
@@ -347,23 +355,30 @@ int supplyCount(int card, struct gameState *state)
   return state->supplyCount[card];
 }
 
+/*
+* Gets the count of a player's cards, including 
+* deck, hand, and discard 
+*/
 int fullDeckCount(int player, int card, struct gameState *state)
 {
   int i;
   int count = 0;
 
+  //count cards in deck
   for (i = 0; i < state->deckCount[player]; i++)
   {
     if (state->deck[player][i] == card)
       count++;
   }
 
+  //count cards in hand
   for (i = 0; i < state->handCount[player]; i++)
   {
     if (state->hand[player][i] == card)
       count++;
   }
 
+  //count cards in discard
   for (i = 0; i < state->discardCount[player]; i++)
   {
     if (state->discard[player][i] == card)
@@ -760,15 +775,15 @@ int adventurerCard(int drawntreasure, int currentPlayer, struct gameState *state
       drawntreasure++;
     else
     {
-      temphand[z] = cardDrawn;
+      temphand[*z] = cardDrawn;
       state->handCount[currentPlayer]--; //this should just remove the top card (the most recently drawn one).
-      z++;
+      *z++;
     }
   }
-  while (z - 1 >= 0)
+  while (*z - 1 >= 0)
   {
-    state->discard[currentPlayer][state->discardCount[currentPlayer]++] = temphand[z - 1]; // discard all cards in play that have been drawn
-    z = z - 1;
+    state->discard[currentPlayer][state->discardCount[currentPlayer]++] = temphand[*z - 1]; // discard all cards in play that have been drawn
+    *z = *z - 1;
   }
   return 0;
 }
@@ -837,6 +852,7 @@ int cutpurseCard(int currentPlayer, struct gameState *state, int handPos){
 }
 
 int seahagCard(int currentPlayer, struct gameState *state){
+  int i;  
   for (i = 0; i < state->numPlayers; i++)
   {
     if (i == currentPlayer)
@@ -852,7 +868,7 @@ int seahagCard(int currentPlayer, struct gameState *state){
 
 
 /* Card Effect
-  function that recieves card choies and uses a switch statement to implement the effects of those cards
+  function that recieves card choices and uses a switch statement to implement the effects of those cards
 */ 
 int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
 {
@@ -1468,6 +1484,11 @@ int gainCard(int supplyPos, struct gameState *state, int toFlag, int player)
   return 0;
 }
 
+/*
+* Updates game states of coins for player
+* Input: int player, struct gameState *state, int bonus
+* Result: state.coins is updated with the number of coins
+*/
 int updateCoins(int player, struct gameState *state, int bonus)
 {
   int i;
