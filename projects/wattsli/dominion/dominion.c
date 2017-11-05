@@ -288,8 +288,7 @@ int playCard(int handPos, int choice1, int choice2, int choice3, struct gameStat
 * int supplyPos: the card being bought
 * struct gameState *state: the game state struct
 */
-int buyCard(int supplyPos, struct gameState *state)
-{
+int buyCard(int supplyPos, struct gameState *state){
   int who;
   if (DEBUG)
   {
