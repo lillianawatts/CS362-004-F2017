@@ -18,17 +18,19 @@ int main(){
     //Set up inputs and game state with 10 cards and 2 players
     int cards[10] = {adventurer, smithy, sea_hag, cutpurse, village, 
     council_room, gardens, mine, gold, duchy};
-    int i;
+    
     struct gameState game;
     //game with 2 players
     initializeGame(2, cards, 1, &game);
-    //hand with one of each treasure
-    game.hand[0][0] = copper;
-    game.hand[0][1] = silver;
-    game.hand[0][3] = gold;
+    //prepare for testing
+    //struct gameState beforeGame = game;
+    int player = whoseTurn(&game);
+    game.hand[player][0] = copper;
+    game.hand[player][1] = silver;
+    game.hand[player][3] = gold;
 
     //start running tests
-    printf("TESTING: updateCoins(int, struct gameState*, int)\n");
+    printf("\nTESTING UNIT 1: updateCoins(int, struct gameState*, int)\n");
     
     //Is the number of available coins correct?
     printf("    TEST 1: Number of coins should be 6: ");

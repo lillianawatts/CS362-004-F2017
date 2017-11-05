@@ -25,7 +25,7 @@ int main(){
     initializeGame(2, cards, 1, &game);
 
     //start running tests
-    printf("TESTING: isGameOver(struct gameState*)\n");
+    printf("\nTESTING UNIT 2: isGameOver(struct gameState*)\n");
     
     //Does it return 0 if the game isn't over?
     printf("    TEST 1: Game not over, should not end game: ");
