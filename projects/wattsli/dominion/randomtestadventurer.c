@@ -31,7 +31,7 @@
 * Makes a randomly constructed deck with 2 random treasures
 * in it
 */
-int makeHand(struct gameState *game, int *cards){
+void makeHand(struct gameState *game, int *cards){
     int i = 0;
     int r = 0;
     int p = game->whoseTurn;
@@ -45,7 +45,7 @@ int makeHand(struct gameState *game, int *cards){
 }
 
 
-int makeDeck(struct gameState *game, int *cards, int *loc){
+void makeDeck(struct gameState *game, int *cards, int *loc){
     int i = 0;
     int r = 0;
     int p = game->whoseTurn;
@@ -97,7 +97,6 @@ int runTest(int player, struct gameState* game, int kingdomCards){
     //get before stats
     int deckCount = game->deckCount[player];
     int discardCount = game->discardCount[player];
-    int handCount = game->handCount[player];
     int handTreasures = getNumTreasures(&game, player);
     printf("\nSTATE FOR ADVENTURER: DECK=%d TREASURE POS:[%d, %d]\n",game->deckCount[player],loc[0],loc[1]);
 
@@ -125,7 +124,7 @@ int runTest(int player, struct gameState* game, int kingdomCards){
 
     //TEST3 - deck should have been reduced by correct amount
     printf("    TEST 3: Discard increased by the correct amount: ");
-    if ((discardCount + getDeckDiff(&game, loc)) == game->discardCount[player])
+    if ((discardCount + getDeckDiff(game, loc)) == game->discardCount[player])
         printf("PASSED\n");
     else
         printf("FAILED\n"); 
