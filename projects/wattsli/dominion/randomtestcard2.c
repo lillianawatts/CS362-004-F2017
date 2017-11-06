@@ -50,7 +50,7 @@ int makeHand(struct gameState *game, int *cards){
     return num; //returns position of smithy card for discard purposes   
 }
 
-void runTests(struct gameState *game, int cards){
+void runTests(struct gameState *game, int *cards){
     //test prep
     makeDeck(game, cards);
     int cardPos = makeHand(game, cards);
