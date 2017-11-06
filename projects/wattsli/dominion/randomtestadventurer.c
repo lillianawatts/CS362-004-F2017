@@ -17,7 +17,7 @@
 /*
 * Random testing adventurer card
 * REQUIREMENTS:
-*   - STATE: A deck of (0-50) cards, with 2 random treasures in
+*   - STATE: A deck of (2-50) cards, with 2 random treasures in
 *       in two random indexes, the rest of the deck filled by
 *       random cards
 *       - a hand of size (1 - 10) with at least one adventurer card
@@ -50,7 +50,7 @@ void makeDeck(struct gameState *game, int *cards, int *loc){
     int r = 0;
     int p = game->whoseTurn;
     int treasures[3] = {gold, silver, copper};
-    game->deckCount[p] = rand() % 50;
+    game->deckCount[p] = rand() % 50 +2;
     for (i = 0; i < game->deckCount[p]; i++){
         r = rand() % 10;
         game->deck[p][i] = cards[r];
