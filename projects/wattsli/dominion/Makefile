@@ -46,13 +46,13 @@ unittestresults:
 
 unittestrestults.out: allTests unittestResults
 
-randomtestadventurer.out: randomtestadventurer.c dominion.o rngs.o
+randomtestadventurer.out: randomtestadventurer.c dominion.o
     gcc -o randomtestadventurer -g  randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
 	./randomtestadventurer &> randomtestadventurer.out
-randomtestcard1.out: randomtestcard1.c dominion.o rngs.o
+randomtestcard1.out: randomtestcard1.c dominion.o
     gcc -o randomtestcard1 -g  randomtestcard1.c dominion.o rngs.o $(CFLAGS)
 	./randomtestcard1 &> randomtestcard1.out
-randomtestcard2.out: randomtestcard2.c dominion.o rngs.o
+randomtestcard2.out: randomtestcard2.c dominion.o
     gcc -o randomtestcard2 -g  randomtestcard2.c dominion.o rngs.o $(CFLAGS)
 	./randomtestcard2 &> randomtestcard2.out
 
