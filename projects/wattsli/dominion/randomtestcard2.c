@@ -87,7 +87,7 @@ int main(){
     //run tests
     int i = 0;
     for(i = 0; i < 100; i ++){
-        runTest(&game, kingdomCards);
+        runTests(&game, kingdomCards);
         initializeGame(2, kingdomCards, 1, &game);
         player = game.whoseTurn;
     }

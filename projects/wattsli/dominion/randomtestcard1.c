@@ -52,7 +52,7 @@ int makeHand(struct gameState *game, int *cards){
     return num; //returns position of village card for discard purposes   
 }
 
-void runTests(struct gameState *game, int cards){
+void runTests(struct gameState *game, int *cards){
     //test prep
     int cardPos = makeDeck(game, cards);
     game->numActions = rand() % 30;
@@ -96,7 +96,7 @@ int main(){
     //run tests
     int i = 0;
     for(i = 0; i < 100; i ++){
-        runTest(&game, kingdomCards);
+        runTests(&game, kingdomCards);
         initializeGame(2, kingdomCards, 1, &game);
         player = game.whoseTurn;
     }
