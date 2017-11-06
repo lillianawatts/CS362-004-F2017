@@ -51,11 +51,13 @@ randomtestadventurer.out: randomtestadventurer.c dominion.o
 	./randomtestadventurer &> randomtestadventurer.out
 	gcov dominion.c >> randomtestadventurer.out
 	cat dominion.c.gcov >> randomtestadventurer.out
+
 randomtestcard1.out: randomtestcard1.c dominion.o
 	gcc -o randomtestcard1 -g  randomtestcard1.c dominion.o rngs.o $(CFLAGS)
 	./randomtestcard1 &> randomtestcard1.out
 	gcov dominion.c >> randomtestcard1.out
 	cat dominion.c.gcov >> randomtestcard1.out
+
 randomtestcard2.out: randomtestcard2.c dominion.o
 	gcc -o randomtestcard2 -g  randomtestcard2.c dominion.o rngs.o $(CFLAGS)
 	./randomtestcard2 &> randomtestcard2.out
@@ -65,4 +67,4 @@ randomtestcard2.out: randomtestcard2.c dominion.o
 allrand: randomtestadventurer.out randomtestcard1.out randomtestcard2.out
 
 clean:
-	rm -f *.o randomtestadventurer.out randomtestcard1.out randomtestcard2.out unitTest1 unitTest2 unitTest3 unitTest4 cardTest1 cardTest2 cardTest3 cardTest4 *.gcov *.gcda *.gcno *.so
+	rm -f *.o randomtestadventurer randomtestcard1 randomtestcard2 unitTest1 unitTest2 unitTest3 unitTest4 cardTest1 cardTest2 cardTest3 cardTest4 *.gcov *.gcda *.gcno *.so
