@@ -52,14 +52,14 @@ int makeHand(struct gameState *game, int *cards){
 
 int runTests(struct gameState *game, int cards){
     //test prep
-    makeDeck(&game, cards);
-    int cardPos = makeHand(&game, cards);
+    makeDeck(game, cards);
+    int cardPos = makeHand(game, cards);
     game->numActions = rand() % 30;
     struct gameState before = *game;
     int player = game->whoseTurn;
 
     //run smithy card
-    smithyCard(player, cardPos, &game);
+    smithyCard(player, cardPos, game);
 
     //TESTS FOR VILLAGE
     printf("\nSTATE FOR CARD 2, SMITHY: DECK=%d HAND=%d\n", before.deckCount[player], before.handCount[player]);
