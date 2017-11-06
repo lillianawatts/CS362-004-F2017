@@ -32,7 +32,7 @@ card4: dominion.o cardtest4.c
 
 allTests: unit1 unit2 unit3 unit4 card1 card2 card3 card4
 
-testResults:
+unittestresults:
 	./unitTest1 &> unittestresult.out
 	./unitTest2 >> unittestresult.out
 	./unitTest3 >> unittestresult.out
@@ -44,7 +44,19 @@ testResults:
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 
-all: allTests testResults
+unittestrestults.out: allTests unittestResults
+
+randomtestadventurer.out: randomtestadventurer.c dominion.o rngs.o
+    gcc -o randomtestadventurer -g  randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
+	./randomtestadventurer &> randomtestadventurer.out
+randomtestcard1.out: randomtestcard1.c dominion.o rngs.o
+    gcc -o randomtestcard1 -g  randomtestcard1.c dominion.o rngs.o $(CFLAGS)
+	./randomtestcard1 &> randomtestcard1.out
+randomtestcard2.out: randomtestcard2.c dominion.o rngs.o
+    gcc -o randomtestcard2 -g  randomtestcard2.c dominion.o rngs.o $(CFLAGS)
+	./randomtestcard2 &> randomtestcard2.out
+
+allrand: randomtestadventurer.out randomtestcard1.out randomtestcard2.out
 
 clean:
 	rm -f *.o unitTest1 unitTest2 unitTest3 unitTest4 cardTest1 cardTest2 cardTest3 cardTest4 *.gcov *.gcda *.gcno *.so
