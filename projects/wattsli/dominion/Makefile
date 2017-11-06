@@ -65,4 +65,4 @@ randomtestcard2.out: randomtestcard2.c dominion.o
 allrand: randomtestadventurer.out randomtestcard1.out randomtestcard2.out
 
 clean:
-	rm -f *.o unitTest1 unitTest2 unitTest3 unitTest4 cardTest1 cardTest2 cardTest3 cardTest4 *.gcov *.gcda *.gcno *.so
+	rm -f *.o randomtestadventurer.out randomtestcard1.out randomtestcard2.out unitTest1 unitTest2 unitTest3 unitTest4 cardTest1 cardTest2 cardTest3 cardTest4 *.gcov *.gcda *.gcno *.so
