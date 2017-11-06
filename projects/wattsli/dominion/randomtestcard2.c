@@ -83,13 +83,11 @@ int main(){
     int kingdomCards[10] = {adventurer, smithy, sea_hag, cutpurse, village, feast, council_room, gardens, mine, steward};
     struct gameState game;
     initializeGame(2,kingdomCards, 1, &game);
-    int player = game.whoseTurn;
     //run tests
     int i = 0;
     for(i = 0; i < 100; i ++){
         runTests(&game, kingdomCards);
         initializeGame(2, kingdomCards, 1, &game);
-        player = game.whoseTurn;
     }
-
+    return 0;
 }
