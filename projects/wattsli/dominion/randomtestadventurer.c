@@ -45,10 +45,9 @@ void makeHand(struct gameState *game, int *cards){
 }
 
 
-void makeDeck(struct gameState *game, int *cards, int *loc){
+void makeDeck(struct gameState* game, int *cards, int *loc, int p){
     int i = 0;
     int r = 0;
-    int p = game->whoseTurn;
     int treasures[3] = {gold, silver, copper};
     game->deckCount[p] = rand() % 50 +2;
     for (i = 0; i < game->deckCount[p]; i++){
@@ -88,7 +87,7 @@ int getDeckDiff(struct gameState* game, int *loc, int p){
 //function to set up and run the tests in question
 void runTest(int player, struct gameState* game, int *kingdomCards){
     int loc[2] = {-1, -1};
-    makeDeck(game, kingdomCards, loc);
+    makeDeck(game, kingdomCards, loc, player);
 
     //get before stats
     int deckCount = game->deckCount[player];
