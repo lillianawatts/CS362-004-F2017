@@ -74,14 +74,14 @@ int getNumTreasures(struct gameState* game){
 
 //gets the expected difference in the size of the deck 
 //after the adventurer card has been used
-int getDeckDiff(struct gameState* game, int *loc){
+int getDeckDiff(struct gameState* game, int *loc, int p){
     int lowerIndex;
     if(loc[0] < loc[1])
         lowerIndex = loc[0];
     else    
         lowerIndex = loc[1];
-    printf("game->deckCount[game->whoseTurn]: %d\n",game->deckCount[game->whoseTurn]);
-    int num = game->deckCount[game->whoseTurn] - lowerIndex;
+    printf("\ngame->deckCount[p]: %d\n",game->deckCount[p]);
+    int num = game->deckCount[p] - lowerIndex;
     return num;
 }
 
@@ -94,7 +94,7 @@ void runTest(int player, struct gameState* game, int *kingdomCards){
     int deckCount = game->deckCount[player];
     int discardCount = game->discardCount[player];
     int handTreasures = getNumTreasures(game);
-    printf("\nSTATE FOR ADVENTURER: DECK=%d TREASURE POS:[%d, %d]\n",game->deckCount[player],loc[0],loc[1]);
+    printf("\n\nSTATE FOR ADVENTURER: DECK=%d TREASURE POS:[%d, %d]\n",game->deckCount[player],loc[0],loc[1]);
 
     //run adventure card
     int drawnTreasures = 0;
@@ -114,14 +114,14 @@ void runTest(int player, struct gameState* game, int *kingdomCards){
     //TEST2 - deck should have been reduced by correct amount
     printf("    TEST 2: Deck decreased by the correct amount: ");
     printf("         current val=%d, dC %d - diff %d = %d", game->deckCount[player], deckCount, getDeckDiff(game, loc), (deckCount - getDeckDiff(game, loc)));
-    if ((deckCount - getDeckDiff(game, loc)) == game->deckCount[player])
+    if ((deckCount - getDeckDiff(game, loc, player)) == game->deckCount[player])
         printf("PASSED\n");
     else
         printf("FAILED\n");   
 
     //TEST3 - deck should have been reduced by correct amount
     printf("    TEST 3: Discard increased by the correct amount: ");
-    if ((discardCount + getDeckDiff(game, loc)) == game->discardCount[player])
+    if ((discardCount + getDeckDiff(game, loc, player)) == game->discardCount[player])
         printf("PASSED\n");
     else
         printf("FAILED\n"); 
