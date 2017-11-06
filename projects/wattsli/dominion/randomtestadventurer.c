@@ -80,9 +80,9 @@ int getDeckDiff(struct gameState* game, int *loc){
         lowerIndex = loc[0];
     else    
         lowerIndex = loc[1];
-    int i = game->deckCount[game->whoseTurn];
+    int i = 0;
     int num = 0;
-    for (i = 0; i>-1; i--){
+    for (i = game->deckCount[game->whoseTurn]; i>-1; i--){
         if(i>lowerIndex)
             num++;
     }
