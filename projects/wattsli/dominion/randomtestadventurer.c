@@ -59,7 +59,7 @@ void makeDeck(struct gameState *game, int *cards, int *loc){
     loc[1] = (rand()%game->deckCount[p]);
     game->deck[p][ loc[0] ] = treasures[rand()%3];
     game->deck[p][ loc[1] ] = treasures[rand()%3];
-    makeHand(&game, cards);
+    makeHand(game, cards);
 }
 
 int getNumTreasures(struct gameState* game){
@@ -90,27 +90,27 @@ int getDeckDiff(struct gameState* game, int *loc){
 }
 
 //function to set up and run the tests in question
-int runTest(int player, struct gameState* game, int kingdomCards){
+int runTest(int player, struct gameState* game, int *kingdomCards){
     int loc[2] = {-1, -1};
-    makeDeck(&game, kingdomCards, loc);
+    makeDeck(game, kingdomCards, loc);
 
     //get before stats
     int deckCount = game->deckCount[player];
     int discardCount = game->discardCount[player];
-    int handTreasures = getNumTreasures(&game, player);
+    int handTreasures = getNumTreasures(game);
     printf("\nSTATE FOR ADVENTURER: DECK=%d TREASURE POS:[%d, %d]\n",game->deckCount[player],loc[0],loc[1]);
 
     //run adventure card
     int drawnTreasures = 0;
     int temphand[MAX_HAND];
     int z = 0; //counter for temphand
-    adventurerCard(drawnTreasures, player, &game, temphand, &z);
+    adventurerCard(drawnTreasures, player, game, temphand, &z);
 
     //TESTS FOR ADVENTURE CARD
     
     //TEST1 - Hand should have 2 more treasure cards
     printf("    TEST 1: 2 more treasures in hand: ");
-    if (getNumTreasures(&game, player) == handTreasures + 2)
+    if (getNumTreasures(game) == handTreasures + 2)
         printf("PASSED\n");
     else
         printf("FAILED\n");
