@@ -20,6 +20,7 @@
 *   - STATE: A deck of (0-50) cards, with 2 random treasures in
 *       in two random indexes, the rest of the deck filled by
 *       random cards
+*       - a hand of size (1 - 10) with at least one adventurer card
 *   - ORACLE: After calling adventurerCard():
 *       - Player hand should have 2 more treasure cards
 *       - Cards up until the second treasure card should have been discarded
@@ -44,6 +45,20 @@ int makeDeck(struct gameState *game, int *cards, int *loc){
     loc[1] = (rand()%game->deckCount[p]);
     game->deck[p][ loc[0] ] = treasures[rand()%3];
     game->deck[p][ loc[1] ] = treasures[rand()%3];
+    makeHand(&game, cards);
+}
+
+int makeHand(struct gameState *game, int *cards){
+    int i = 0;
+    int r = 0;
+    int p = game->whoseTurn;
+    game->handCount[p] = rand() % 10 + 1;
+    for (i; i < game->handCount[p]; i++){
+        r = rand() % 10;
+        game->hand[p][i] = cards[r];
+    }
+    int num = (rand()%game->handCount[p]);
+    game->deck[p][num] = adventurer; //making sure there is a adventurer
 }
 
 int getNumTreasures(struct gameState* game){

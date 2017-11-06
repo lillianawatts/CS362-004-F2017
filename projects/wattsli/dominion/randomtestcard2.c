@@ -65,25 +65,17 @@ int runTests(struct gameState *game, int cards){
     printf("\nSTATE FOR CARD 2, SMITHY: DECK=%d HAND=%d\n", before.deckCount[player], before.handCount[player]);
     //TEST1 - Deck should have one fewer card
     printf("    TEST 1: Deck decreased by three: ");
-    if (game->deckCount[player] == before.deckCount[player] - 1 )
+    if (game->deckCount[player] == before.deckCount[player] - 3 )
         printf("PASSED\n");
     else
         printf("FAILED\n");
 
     //TEST2 - Hand should have one more card
-    printf("    TEST 2: Hand increased by one: ");
-    if (game->handCount[player] == before.handCount[player] + 1 )
+    printf("    TEST 2: Hand increased by three: ");
+    if (game->handCount[player] == before.handCount[player] + 3 )
         printf("PASSED\n");
     else
         printf("FAILED\n");
-    
-    //TEST3 - number of actions should increase by 2
-    printf("    TEST 2: Num actions increased by 2: ");
-    if (game->numActions == before.numActions + 2 )
-        printf("PASSED\n");
-    else
-        printf("FAILED\n");
-
 }
 
 int main(){

@@ -18,7 +18,8 @@
 * Random testing village card
 * REQUIREMENTS:
 *   - STATE: Game with village card in kingdom cards
-*       - Random deck size (0 - 50) with at least one village
+*       - Random deck size (0 - 50) 
+*       - Random hand size (1 - 10) with at least one villgae
 *       - Random number of actions (0-30)
 *   - ORACLE:
 *       - deck should decrease by one
@@ -35,9 +36,20 @@ int makeDeck(struct gameState *game, int *cards){
         r = rand() % 10;
         game->deck[p][i] = cards[r];
     }
-    int num = (rand()%game->deckCount[p]);
+}
+
+int makeHand(struct gameState *game, int *cards){
+    int i = 0;
+    int r = 0;
+    int p = game->whoseTurn;
+    game->handCount[p] = rand() % 10 + 1;
+    for (i; i < game->handCount[p]; i++){
+        r = rand() % 10;
+        game->hand[p][i] = cards[r];
+    }
+    int num = (rand()%game->handCount[p]);
     game->deck[p][num] = village; //making sure there is a village
-    return num; //returns position of village card for discard purposes
+    return num; //returns position of village card for discard purposes   
 }
 
 int runTests(struct gameState *game, int cards){
