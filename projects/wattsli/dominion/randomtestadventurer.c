@@ -90,7 +90,7 @@ int getDeckDiff(struct gameState* game, int *loc){
 }
 
 //function to set up and run the tests in question
-int runTest(int player, struct gameState* game, int *kingdomCards){
+void runTest(int player, struct gameState* game, int *kingdomCards){
     int loc[2] = {-1, -1};
     makeDeck(game, kingdomCards, loc);
 
