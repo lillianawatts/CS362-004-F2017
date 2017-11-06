@@ -79,7 +79,6 @@ int getDeckDiff(struct gameState* game, int *loc, int p){
         lowerIndex = loc[0];
     else    
         lowerIndex = loc[1];
-    printf("\ngame->deckCount[p]: %d\n",game->deckCount[p]);
     int num = game->deckCount[p] - lowerIndex;
     return num;
 }
@@ -112,7 +111,6 @@ void runTest(int player, struct gameState* game, int *kingdomCards){
     
     //TEST2 - deck should have been reduced by correct amount
     printf("    TEST 2: Deck decreased by the correct amount: ");
-    printf("         current val=%d, dC %d - diff %d = %d", game->deckCount[player], deckCount, getDeckDiff(game, loc, player), (deckCount - getDeckDiff(game, loc, player)));
     if ((deckCount - getDeckDiff(game, loc, player)) == game->deckCount[player])
         printf("PASSED\n");
     else
