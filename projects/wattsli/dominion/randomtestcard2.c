@@ -18,7 +18,7 @@
 * Random testing smithy card
 * REQUIREMENTS:
 *   - STATE: Game with smithy card in kingdom cards
-*       - Random deck size (0 - 50)
+*       - Random deck size (1 - 50)
 *       - Random hand size (1 - 10) with at least one smithy
 *   - ORACLE:
 *       - deck should decrease by three
@@ -29,7 +29,7 @@ void makeDeck(struct gameState *game, int *cards){
     int i = 0;
     int r = 0;
     int p = game->whoseTurn;
-    game->deckCount[p] = rand() % 50;
+    game->deckCount[p] = rand() % 50 + 1;
     for (i = 0; i < game->deckCount[p]; i++){
         r = rand() % 10;
         game->deck[p][i] = cards[r];
