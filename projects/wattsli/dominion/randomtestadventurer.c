@@ -117,7 +117,7 @@ int runTest(int player, struct gameState* game, int kingdomCards){
     
     //TEST2 - deck should have been reduced by correct amount
     printf("    TEST 2: Deck decreased by the correct amount: ");
-    if ((deckCount - getDeckDiff(&game, loc)) == game->deckCount[player])
+    if ((deckCount - getDeckDiff(game, loc)) == game->deckCount[player])
         printf("PASSED\n");
     else
         printf("FAILED\n");   
