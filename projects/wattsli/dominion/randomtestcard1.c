@@ -54,7 +54,8 @@ int makeHand(struct gameState *game, int *cards){
 
 void runTests(struct gameState *game, int *cards){
     //test prep
-    int cardPos = makeDeck(game, cards);
+    int cardPos = makeHand(game, cards);
+    makeDeck(game, cards)
     game->numActions = rand() % 30;
     struct gameState before = *game;
     int player = game->whoseTurn;
