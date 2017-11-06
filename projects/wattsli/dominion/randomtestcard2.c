@@ -30,7 +30,7 @@ void makeDeck(struct gameState *game, int *cards){
     int r = 0;
     int p = game->whoseTurn;
     game->deckCount[p] = rand() % 50;
-    for (i; i < game->deckCount[p]; i++){
+    for (i = 0; i < game->deckCount[p]; i++){
         r = rand() % 10;
         game->deck[p][i] = cards[r];
     }
@@ -41,7 +41,7 @@ int makeHand(struct gameState *game, int *cards){
     int r = 0;
     int p = game->whoseTurn;
     game->handCount[p] = rand() % 10 + 1;
-    for (i; i < game->handCount[p]; i++){
+    for (i = 0; i < game->handCount[p]; i++){
         r = rand() % 10;
         game->hand[p][i] = cards[r];
     }
@@ -86,7 +86,7 @@ int main(){
     int player = game.whoseTurn;
     //run tests
     int i = 0;
-    for(i ; i < 100; i ++){
+    for(i = 0; i < 100; i ++){
         runTest(&game, kingdomCards);
         initializeGame(2, kingdomCards, 1, &game);
         player = game.whoseTurn;

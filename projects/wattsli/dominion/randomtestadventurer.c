@@ -36,7 +36,7 @@ void makeHand(struct gameState *game, int *cards){
     int r = 0;
     int p = game->whoseTurn;
     game->handCount[p] = rand() % 10 + 1;
-    for (i; i < game->handCount[p]; i++){
+    for (i = 0; i < game->handCount[p]; i++){
         r = rand() % 10;
         game->hand[p][i] = cards[r];
     }
@@ -51,7 +51,7 @@ void makeDeck(struct gameState *game, int *cards, int *loc){
     int p = game->whoseTurn;
     int treasures[3] = {gold, silver, copper};
     game->deckCount[p] = rand() % 50;
-    for (i; i < game->deckCount[p]; i++){
+    for (i = 0; i < game->deckCount[p]; i++){
         r = rand() % 10;
         game->deck[p][i] = cards[r];
     }
@@ -65,7 +65,7 @@ void makeDeck(struct gameState *game, int *cards, int *loc){
 int getNumTreasures(struct gameState* game){
     int num = 0;
     int i;
-    for(i; i<game->handCount[game->whoseTurn];i++){
+    for(i = 0; i<game->handCount[game->whoseTurn];i++){
         if (game->hand[game->whoseTurn][i] || game->hand[game->whoseTurn][i] == silver || game->hand[game->whoseTurn][i] == gold)
             num++;
     }
@@ -82,7 +82,7 @@ int getDeckDiff(struct gameState* game, int *loc){
         lowerIndex = loc[1];
     int i = game->deckCount[game->whoseTurn];
     int num = 0;
-    for (i; i>-1; i--){
+    for (i = 0; i>-1; i--){
         if(i>lowerIndex)
             num++;
     }
@@ -138,7 +138,7 @@ int main(){
     int player = game.whoseTurn;
     //run tests
     int i = 0;
-    for(i ; i < 100; i ++){
+    for(i = 0; i < 100; i ++){
         runTest(player, &game, kingdomCards);
         initializeGame(2, kingdomCards, 1, &game);
         player = game.whoseTurn;
