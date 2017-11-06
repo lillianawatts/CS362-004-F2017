@@ -78,6 +78,8 @@ struct gameState {
 
 struct gameState* newGame();
 
+int smithyCard(int currentPlayer, int handPos, struct gameState *state);  
+
 int villageCard(int currentPlayer, int handPos, struct gameState *state);
 
 int adventurerCard(int drawntreasure, int currentPlayer, struct gameState *state, int *temphand, int *z);
