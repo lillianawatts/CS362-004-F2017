@@ -80,7 +80,7 @@ int getDeckDiff(struct gameState* game, int *loc){
         lowerIndex = loc[0];
     else    
         lowerIndex = loc[1];
-    int i = 0;
+    printf("game->deckCount[game->whoseTurn]: %d\n",game->deckCount[game->whoseTurn]);
     int num = game->deckCount[game->whoseTurn] - lowerIndex;
     return num;
 }
