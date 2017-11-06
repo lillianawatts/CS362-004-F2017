@@ -27,7 +27,7 @@
 *       - actions should increase by two
 */
 
-int makeDeck(struct gameState *game, int *cards){
+void makeDeck(struct gameState *game, int *cards){
     int i = 0;
     int r = 0;
     int p = game->whoseTurn;
@@ -52,7 +52,7 @@ int makeHand(struct gameState *game, int *cards){
     return num; //returns position of village card for discard purposes   
 }
 
-int runTests(struct gameState *game, int cards){
+void runTests(struct gameState *game, int cards){
     //test prep
     int cardPos = makeDeck(game, cards);
     game->numActions = rand() % 30;
