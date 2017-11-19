@@ -1,3 +1,4 @@
+BUG #1
 Noverse Bug Reporting Template
 ==============================
 
@@ -46,49 +47,53 @@ Other Information
 -----------------
 the error is in the for loop definition on line 1382
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+BUG #2
 Noverse Bug Reporting Template
 ==============================
 
-Title:    
+Title: Village Card action increment issues 
 
 Class:
-e.g. "Feature Request", "System Error", "Serious Bug"
+Logic bug
 
-Date:           
-Reported By:   
-Email:      
+Date: 11/18/17          
+Reported By: Lilly Watts
+Email: wattsli@oregonstate.edu 
 
 
-Product:                        Version:
-Platform:                       Version:
-Browser:                        Version:
+Product: Dominion   Version:
+Platform: C         Version:
+Browser:            Version:
 URL:        
 
-Is it reproducible: Yes / Occasionally / One Time / No
+Is it reproducible: Yes
 
 Description
 ===========
-
+The number of actions a player has 
+only increases by one instead of two
 
 Steps to Produce/Reproduce
 --------------------------
-
+run vil() function in dominion.c
 
 Expected Results
 ----------------
-
+numActions is increased by two
 
 Actual Results
 --------------
-
+numActions is increased by one
 
 Workarounds
 -----------
+none
 
 Attachments
 -----------
 
 Other Information
 -----------------
-
+Fix it by adjusting the increment on line 1441
 

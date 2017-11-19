@@ -61,10 +61,11 @@ void runTests(struct gameState *game, int *cards){
     int player = game->whoseTurn;
 
     //run village card
-    villageCard(player, cardPos, game);
+    //villageCard(player, cardPos, game);
+    vil(game, player, cardPos);
 
     //TESTS FOR VILLAGE
-    printf("\nSTATE FOR CARD 1, VILLAGE: DECK=%d ACTIONS=%d\n", before.deckCount[player], before.numActions);
+    printf("\nSTATE FOR CARD 1, VILLAGE: DECK=%d HAND=%d ACTIONS=%d\n", before.deckCount[player], before.handCount[player], before.numActions);
     //TEST1 - Deck should have one fewer card
     printf("    TEST 1: Deck decreased by one: ");
     if (game->deckCount[player] == before.deckCount[player] - 1 )
@@ -86,6 +87,7 @@ void runTests(struct gameState *game, int *cards){
     else
         printf("FAILED\n");
 
+    printf("    STATE FOR CARD 1, VILLAGE: DECK=%d HAND=%d ACTIONS=%d\n", game->deckCount[player], game->handCount[player], game->numActions);
 }
 
 int main(){
