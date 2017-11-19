@@ -123,6 +123,8 @@ void runTest(int player, struct gameState* game, int *kingdomCards){
         printf("PASSED\n");
     else
         printf("FAILED\n"); 
+    
+    printf("\n  STATE FOR ADVENTURER: DECK=%d TREASURE POS:[%d, %d]\n",game->deckCount[player],loc[0],loc[1]);
 }
 
 int main(){
