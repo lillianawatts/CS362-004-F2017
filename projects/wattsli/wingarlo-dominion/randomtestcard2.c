@@ -78,7 +78,7 @@ void runTests(struct gameState *game, int *cards){
     else
         printf("FAILED\n");
     
-    printf("\n  STATE FOR CARD 2, SMITHY: DECK=%d HAND=%d\n", game->deckCount[player], game->handCount[player]);
+    printf("    STATE FOR CARD 2, SMITHY: DECK=%d HAND=%d\n", game->deckCount[player], game->handCount[player]);
 }
 
 int main(){

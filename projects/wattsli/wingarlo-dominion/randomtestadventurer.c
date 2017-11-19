@@ -92,7 +92,7 @@ void runTest(int player, struct gameState* game, int *kingdomCards){
     int deckCount = game->deckCount[player];
     int discardCount = game->discardCount[player];
     int handTreasures = getNumTreasures(game);
-    printf("\n\nSTATE FOR ADVENTURER: DECK=%d TREASURE POS:[%d, %d]\n",game->deckCount[player],loc[0],loc[1]);
+    printf("\n\nSTATE FOR ADVENTURER: DECK=%d TREASURE POS:[%d, %d]\n",deckCount,loc[0],loc[1]);
 
     //run adventure card
     int drawnTreasures = 0;
@@ -124,7 +124,7 @@ void runTest(int player, struct gameState* game, int *kingdomCards){
     else
         printf("FAILED\n"); 
     
-    printf("\n  STATE FOR ADVENTURER: DECK=%d TREASURE POS:[%d, %d]\n",game->deckCount[player],loc[0],loc[1]);
+    printf("  STATE FOR ADVENTURER: DECK=%d TREASURE POS:[%d, %d]\n",game->deckCount[player],loc[0],loc[1]);
 }
 
 int main(){
