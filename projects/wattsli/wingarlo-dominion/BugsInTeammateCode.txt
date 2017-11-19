@@ -1,7 +1,55 @@
 Noverse Bug Reporting Template
 ==============================
 
-Title: Bug One
+Title: SMITHY - wrong number of cards drawn
+
+Class:
+logic bug
+
+Date: 11/18/17
+Reported By: Lilly Watts
+Email: wattsli@oregonstate.edu
+
+
+Product:  Dominion              Version:
+Platform: C                     Version:
+Browser:                        Version:
+URL:        
+
+Is it reproducible: Yes
+
+Description
+===========
+When the Smithy card is played, the deck has four
+fewer cards instead of 3 fewer
+
+Steps to Produce/Reproduce
+--------------------------
+Run the smith() funciton in dominion.c
+
+Expected Results
+----------------
+Deck has 3 fewer cards
+
+Actual Results
+--------------
+Deck has 4 fewer cards
+
+Workarounds
+-----------
+none
+
+Attachments
+-----------
+
+Other Information
+-----------------
+the error is in the for loop definition on line 1382
+
+Noverse Bug Reporting Template
+==============================
+
+Title:    
 
 Class:
 e.g. "Feature Request", "System Error", "Serious Bug"
@@ -22,32 +70,25 @@ Description
 ===========
 
 
-
 Steps to Produce/Reproduce
 --------------------------
-
 
 
 Expected Results
 ----------------
 
 
-
 Actual Results
 --------------
-
 
 
 Workarounds
 -----------
 
-
-
 Attachments
 -----------
 
-
-
 Other Information
 -----------------
+
 
