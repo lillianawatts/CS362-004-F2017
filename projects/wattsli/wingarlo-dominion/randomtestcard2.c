@@ -59,7 +59,8 @@ void runTests(struct gameState *game, int *cards){
     int player = game->whoseTurn;
 
     //run smithy card
-    smithyCard(player, cardPos, game);
+    //smithyCard(player, cardPos, game);
+    smith(game, player, cardPos);
 
     //TESTS FOR VILLAGE
     printf("\nSTATE FOR CARD 2, SMITHY: DECK=%d HAND=%d\n", before.deckCount[player], before.handCount[player]);

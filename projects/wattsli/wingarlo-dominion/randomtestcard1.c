@@ -61,7 +61,8 @@ void runTests(struct gameState *game, int *cards){
     int player = game->whoseTurn;
 
     //run village card
-    villageCard(player, cardPos, game);
+    //villageCard(player, cardPos, game);
+    vil(game, player, cardPos);
 
     //TESTS FOR VILLAGE
     printf("\nSTATE FOR CARD 1, VILLAGE: DECK=%d ACTIONS=%d\n", before.deckCount[player], before.numActions);

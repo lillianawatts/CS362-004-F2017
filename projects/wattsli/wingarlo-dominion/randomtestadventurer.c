@@ -98,8 +98,8 @@ void runTest(int player, struct gameState* game, int *kingdomCards){
     int drawnTreasures = 0;
     int temphand[MAX_HAND];
     int z = 0; //counter for temphand
-    adventurerCard(drawnTreasures, player, game, temphand, &z);
-
+    //adventurerCard(drawnTreasures, player, game, temphand, &z);
+    adventure(game, player)
     //TESTS FOR ADVENTURE CARD
     
     //TEST1 - Hand should have 2 more treasure cards
