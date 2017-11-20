@@ -42,9 +42,9 @@ int main(){
     //Does it add it?
     printf("    TEST 2: Number of cards in hand, discard, and deck should increase by 1 respectively: ");
     printf("        STATE: DISC=%d DECK=%d HAND=%d\n", game.discard, cardCount, game.hand[player]);
-    gainCard(adventurer, &game, 0, whoseTurn(&game)); //sends card to discard
-    gainCard(adventurer, &game, 1, whoseTurn(&game)); //sends card to deck
-    gainCard(adventurer, &game, 2, whoseTurn(&game)); //sends card to hand
+    gainCard(adventurer, &game, 0, player); //sends card to discard
+    gainCard(adventurer, &game, 1, player); //sends card to deck
+    gainCard(adventurer, &game, 2, player); //sends card to hand
     if(fullDeckCount(whoseTurn(&game), 0, &game) == (cardCount+3))
         printf("PASSED\n");
     else
