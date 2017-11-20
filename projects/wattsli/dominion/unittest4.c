@@ -40,7 +40,8 @@ int main(){
         printf("FAILED\n");
     
     //Does it add it?
-    printf("    TEST 2: Number of cards in hand, discard, and deck should increase by 1 resoectively: ");
+    printf("    TEST 2: Number of cards in hand, discard, and deck should increase by 1 respectively: ");
+    printf("        STATE: DISC=%d DECK=%d HAND=%d\n", game.discard, cardCount, game.hand[player]);
     gainCard(adventurer, &game, 0, whoseTurn(&game)); //sends card to discard
     gainCard(adventurer, &game, 1, whoseTurn(&game)); //sends card to deck
     gainCard(adventurer, &game, 2, whoseTurn(&game)); //sends card to hand
@@ -48,12 +49,16 @@ int main(){
         printf("PASSED\n");
     else
         printf("FAILED\n");
+    printf("        STATE: DISC=%d DECK=%d HAND=%d\n", game.discard, fullDeckCount(player, 0, &game), game.hand[player]);
 
     //Does it update the supply?
     printf("    TEST 3: Supply of adventurer should be decreased by 3: ");
+    printf("        STATE: SUPPLY=%d\n", supplyCount);
     if(game.supplyCount[adventurer] == (supplyCount - 3))
         printf("PASSED\n");
     else
         printf("FAILED\n");
+    printf("        STATE: SUPPLY=%d\n", game.supplyCount[adventurer]);
+
     return 0;
 }

@@ -26,7 +26,7 @@ int main(){
 
     //start running tests
     printf("\nTESTING UNIT 2: isGameOver(struct gameState*)\n");
-    
+
     //Does it return 0 if the game isn't over?
     printf("    TEST 1: Game not over, should not end game: ");
     if(!isGameOver(&game))
@@ -44,6 +44,7 @@ int main(){
     
     //Does it return 1 if the game is over? (3 stacks empty)
     printf("    TEST 3: 3 card stacks are < 1, should end game: ");
+    printf("    STATE: ADV=%d VILL=%d GARD=%d ", game.supplyCount[adventurer], game.supplyCount[village], game.supplyCount[gardens]);
     game.supplyCount[adventurer] = 0;
     game.supplyCount[village] = 0;
     game.supplyCount[gardens] = 0;
@@ -51,6 +52,7 @@ int main(){
         printf("PASSED\n");
     else
         printf("FAILED\n");
-    
+    printf("    STATE: ADV=%d VILL=%d GARD=%d ", game.supplyCount[adventurer], game.supplyCount[village], game.supplyCount[gardens]);
+
     return 0;
 }
