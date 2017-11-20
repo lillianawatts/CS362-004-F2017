@@ -24,9 +24,9 @@ int main(){
     struct gameState game;
     //game with 2 players
     initializeGame(2, cards, 1, &game);
-    int player = whoseTurn(&game);
+    int player = whoseTurn(&game);  
 
-    int cardCount = fullDeckCount(player, 0, &game);
+    int cardCount = game.deckCount
     int supplyCount = game.supplyCount[adventurer];
 
     //start running tests
@@ -41,7 +41,7 @@ int main(){
     
     //Does it add it?
     printf("    TEST 2: Number of cards in hand, discard, and deck should increase by 1 respectively: ");
-    printf("        STATE: DISC=%d DECK=%d HAND=%d\n", game.discard, cardCount, game.hand[player]);
+    printf("\n        STATE: DISC=%d DECK=%d HAND=%d\n", game.discardCount, game.deckCount, game.handCount);
     gainCard(adventurer, &game, 0, player); //sends card to discard
     gainCard(adventurer, &game, 1, player); //sends card to deck
     gainCard(adventurer, &game, 2, player); //sends card to hand
@@ -49,7 +49,7 @@ int main(){
         printf("PASSED\n");
     else
         printf("FAILED\n");
-    printf("        STATE: DISC=%d DECK=%d HAND=%d\n", game.discard, fullDeckCount(player, 0, &game), game.hand[player]);
+    printf("        STATE: DISC=%d DECK=%d HAND=%d\n", game.discardCount, game.deckCount, game.handCount);
 
     //Does it update the supply?
     printf("    TEST 3: Supply of adventurer should be decreased by 3: ");
