@@ -27,8 +27,10 @@ int main(){
     int player = whoseTurn(&game);
     game.hand[player][0] = copper;
     game.hand[player][1] = silver;
-    game.hand[player][3] = gold;
-    
+    game.hand[player][2] = gold;
+    int i;
+    for(i=3; i < game.handCount[player]; i++)
+        game.hand[player][i] = estate;
 
     //start running tests
     printf("\nTESTING UNIT 1: updateCoins(int, struct gameState*, int)\n");
