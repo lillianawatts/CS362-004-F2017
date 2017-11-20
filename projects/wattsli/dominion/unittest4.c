@@ -26,7 +26,7 @@ int main(){
     initializeGame(2, cards, 1, &game);
     int player = whoseTurn(&game);  
 
-    int cardCount = game.deckCount
+    int cardCount = game.deckCount;
     int supplyCount = game.supplyCount[adventurer];
 
     //start running tests
