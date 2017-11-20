@@ -99,7 +99,7 @@ void runTest(int player, struct gameState* game, int *kingdomCards){
     int temphand[MAX_HAND];
     int z = 0; //counter for temphand
     //adventurerCard(drawnTreasures, player, game, temphand, &z);
-    adventure(game, player);
+    adventurerCard(drawnTreasures, player, game, temphand, z);
     
     //TESTS FOR ADVENTURE CARD
     

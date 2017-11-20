@@ -62,7 +62,7 @@ void runTests(struct gameState *game, int *cards){
 
     //run village card
     //villageCard(player, cardPos, game);
-    vil(game, player, cardPos);
+    villageCard(player, cardPos, game);
 
     //TESTS FOR VILLAGE
     printf("\nSTATE FOR CARD 1, VILLAGE: DECK=%d HAND=%d ACTIONS=%d\n", before.deckCount[player], before.handCount[player], before.numActions);
