@@ -25,7 +25,7 @@ int main(){
     struct gameState beforeGame = game;
     //start running tests
     printf("\nTESTING UNIT 3: buyCard(int, struct gameState)\n");
-    printf("    STATE: ADV=%d BUYS=%d, COINS=%d", beforeGame.supplyCount[adventure], beforeGame.numBuys, beforeGame.coins);
+    printf("    STATE: ADV=%d BUYS=%d, COINS=%d \n", beforeGame.supplyCount[adventurer], beforeGame.numBuys, beforeGame.coins);
     buyCard(adventurer, &game);
     
     //Did the coint of adventurer cards decrease?
@@ -48,7 +48,7 @@ int main(){
         printf("PASSED\n");
     else
         printf("FAILED\n");
-    printf("    STATE: ADV=%d BUYS=%d, COINS=%d", game.supplyCount[adventure], game.numBuys, game.coins);
+    printf("    STATE: ADV=%d BUYS=%d, COINS=%d \n", game.supplyCount[adventurer], game.numBuys, game.coins);
 
     return 0;
 }

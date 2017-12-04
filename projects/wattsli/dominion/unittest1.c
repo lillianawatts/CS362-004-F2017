@@ -34,7 +34,7 @@ int main(){
 
     //start running tests
     printf("\nTESTING UNIT 1: updateCoins(int, struct gameState*, int)\n");
-    printf("    STATE: COINS=%d ", game.coins);
+    printf("    STATE: COINS=%d \n", game.coins);
     //Is the number of available coins correct?
     printf("    TEST 1: Number of coins should be 6: ");
     updateCoins(0,&game,0);
@@ -42,7 +42,7 @@ int main(){
         printf("PASSED\n");
     else
         printf("FAILED\n");
-    printf("    STATE: COINS=%d ", game.coins);
+    printf("    STATE: COINS=%d \n", game.coins);
 
     //Does it return 1 if the game is over? (no provences)
     printf("    TEST 2: With bonus of 2, number of coins should be 8: ");
@@ -51,7 +51,7 @@ int main(){
         printf("PASSED\n");
     else
         printf("FAILED\n");
-    printf("    STATE: COINS=%d ", game.coins);
-
+    printf("    STATE: COINS=%d \n", game.coins);
+    
     return 0;
 }
